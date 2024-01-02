@@ -1,26 +1,23 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:20.10.0-alpine3.18'
-            args '-p 3000:3000'
-        }
-    }
+    agent any
+
+    tools { nodejs 'node' }
+
     stages {
         stage('Build') {
             steps {
                 sh 'npm install'
             }
         }
-        stage('Test') { 
+        stage('Test') {
             steps {
-                sh 'ng test --no-watch --no-progress --browsers=ChromeHeadless' 
+                sh 'ng test --no-watch --no-progress --browsers=ChromeHeadless'
             }
         }
-         stage('Sonar') { 
+        stage('Sonar') {
             steps {
-                sh 'npm run sonar' 
+                sh 'npm run sonar'
             }
-        
+        }
     }
-}
 }
