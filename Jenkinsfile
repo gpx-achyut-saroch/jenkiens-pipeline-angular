@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'ng test --no-watch --no-progress --browsers=ChromeHeadless'
+                sh 'npm run ng test --no-watch --no-progress --browsers=ChromeHeadless'
             }
         }
         stage('Sonar') {
