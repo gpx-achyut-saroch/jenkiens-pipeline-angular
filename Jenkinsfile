@@ -6,12 +6,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'npm install'
+                sh 'npm install -g @angular/cli@14'
             }
         }
         stage('Test') {
             steps {
-                sh 'npm run ng test --no-watch --no-progress --browsers=ChromeHeadless'
+                sh 'ng test --no-watch --no-progress --browsers=ChromeHeadless'
             }
         }
         stage('Sonar') {
