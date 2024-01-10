@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'jest --no-watch --runInBand --coverage'
+                sh 'npm test'
             }
         }
         stage('Sonar') {
